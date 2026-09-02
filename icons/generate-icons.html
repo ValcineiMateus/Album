@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerar Ícones</title>
+</head>
+<body>
+    <canvas id="icon192" width="192" height="192"></canvas>
+    <canvas id="icon512" width="512" height="512"></canvas>
+    <script>
+        function createIcon(size) {
+            const canvas = document.getElementById(size === 192 ? 'icon192' : 'icon512');
+            const ctx = canvas.getContext('2d');
+            
+            // Fundo
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#7a3b4a');
+            gradient.addColorStop(1, '#e8b4c4');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Coração
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.font = `${size * 0.6}px Arial`;
+            ctx.fillText('♥', size/2, size/2);
+            
+            // Texto
+            ctx.fillStyle = 'rgba(255,255,255,0.9)';
+            ctx.font = `${size * 0.08}px Arial`;
+            ctx.fillText('Álbum de Amor', size/2, size * 0.85);
+            
+            // Baixar
+            const link = document.createElement('a');
+            link.download = `icon-${size}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        createIcon(192);
+        setTimeout(() => createIcon(512), 100);
+    </script>
+</body>
+</html>
