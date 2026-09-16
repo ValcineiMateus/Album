@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta name="theme-color" content="#d9c7a8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Nosso Álbum" />
+
+    <title>💖 Nosso Álbum de Amor</title>
+
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;600&family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&family=Indie+Flower&family=Shadows+Into+Light&family=Kalam:wght@400;700&family=Sacramento&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css?v=14" />
+</head>
+
+<body class="theme-wood-light cover-closed">
+
+    <!-- ===== CAPA EM TELA CHEIA (só aparece no celular) ===== -->
+    <div class="cover-screen" id="coverScreen">
+        <div class="cover-screen-inner">
+            <div class="album-cover" id="albumCover">
+                <div class="cover-corner top-left"></div>
+                <div class="cover-corner top-right"></div>
+                <div class="cover-corner bottom-left"></div>
+                <div class="cover-corner bottom-right"></div>
+
+                <div class="cover-clasp">
+                    <div class="clasp-metal"></div>
+                    <div class="clasp-strap"></div>
+                </div>
+
+                <div class="cover-inner">
+                    <div class="cover-ornament">❦</div>
+                    <h1 class="cover-title" id="coverTitle" contenteditable="true" spellcheck="false">Nosso Álbum</h1>
+                    <div class="cover-subtitle" id="coverSubtitle" contenteditable="true" spellcheck="false">de Amor</div>
+                    <div class="cover-line"></div>
+                    <div class="cover-names" id="coverNames" contenteditable="true" spellcheck="false">Você &amp; Eu</div>
+                    <div class="cover-ornament bottom">❦</div>
+                </div>
+
+                <div class="cover-spine"></div>
+            </div>
+
+            <div class="cover-hint">
+                <span class="cover-hint-arrow">›</span>
+                <span>Deslize para abrir</span>
+            </div>
+
+            <button class="cover-open-btn" id="coverOpenBtn">Abrir Álbum →</button>
+        </div>
+    </div>
+
+    <!-- ===== HEADER COMPACTO ===== -->
+    <header class="album-header" id="albumHeader">
+        <div class="header-content">
+            <div class="title-group">
+                <div class="mini-cover" id="miniCoverBtn" title="Voltar para a capa">
+                    <span class="mini-cover-ornament">❦</span>
+                    <span class="mini-cover-title" id="miniCoverTitle">Nosso Álbum</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-night" id="btnToggleNight">🌙</button>
+
+                <div class="filter-menu-wrapper">
+                    <button class="btn-kebab" id="btnFilterMenu" title="Menu" aria-label="Abrir menu">⋮</button>
+                    <div class="filter-dropdown hidden" id="filterDropdown">
+                        <label>📅 Filtrar por:</label>
+                        <select id="filterMonth">
+                            <option value="all">Todos os meses</option>
+                        </select>
+                        <select id="filterYear">
+                            <option value="all">Todos os anos</option>
+                        </select>
+                        <span class="filter-stats" id="filterStats">📸 0 grupos</span>
+                        <button class="btn btn-secondary" id="btnClearFilter">Limpar filtro</button>
+
+                        <div class="dropdown-divider"></div>
+
+                        <label>✏️ Criar:</label>
+                        <button class="btn btn-menu-item" id="btnAddPhotos">📸 Adicionar Fotos</button>
+                        <button class="btn btn-menu-item" id="btnAddNote">✎ Lembrete em Dia</button>
+                        <button class="btn btn-menu-item" id="btnAddFreeNote">📝 Lembrete Solto</button>
+
+                        <div class="dropdown-divider"></div>
+
+                        <label>🎨 Personalizar:</label>
+                        <button class="btn btn-menu-item" id="btnOpenCustomize">🎨 Tema, Fontes e Cores</button>
+
+                        <div class="dropdown-divider"></div>
+
+                        <button class="btn btn-menu-item" id="btnToggleStats">📊 Mostrar/Ocultar Stats</button>
+                        <button class="btn btn-menu-item" id="btnBackToCover">📖 Ver Capa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <div class="main-container">
+
+        <div class="together-counter" id="togetherCounter">
+            <div class="counter-title">💕 Juntos há</div>
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <span class="counter-number" id="counterYears">0</span>
+                    <span class="counter-label">anos</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="counterMonths">0</span>
+                    <span class="counter-label">meses</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="counterDays">0</span>
+                    <span class="counter-label">dias</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="counterHours">00</span>
+                    <span class="counter-label">h</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="counterMinutes">00</span>
+                    <span class="counter-label">min</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-number" id="counterSeconds">00</span>
+                    <span class="counter-label">s</span>
+                </div>
+            </div>
+            <div class="counter-since">desde 16 de junho de 2026</div>
+        </div>
+
+        <div class="stats-panel" id="statsPanel">
+            <div class="stats-header">
+                <h2>📊 Nossa História em Números</h2>
+                <span style="font-size:0.8rem;opacity:0.6;">Atualizado em tempo real</span>
+            </div>
+            <div class="stats-grid" id="statsGrid">
+                <div class="stat-item">
+                    <div class="stat-number" id="statGroups">0</div>
+                    <div class="stat-label">Dias especiais</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statPhotos">0</div>
+                    <div class="stat-label">Fotos no total</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statMonths">0</div>
+                    <div class="stat-label">Meses com fotos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statPeriod">0</div>
+                    <div class="stat-label">Dias desde o início</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statAvgPhotos">0</div>
+                    <div class="stat-label">Média fotos/dia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statWithMusic">0</div>
+                    <div class="stat-label">Dias com música</div>
+                </div>
+            </div>
+            <div class="stats-bars">
+                <div class="bar-chart">
+                    <h4>📈 Fotos por mês</h4>
+                    <div id="monthlyBars"></div>
+                </div>
+                <div class="bar-chart">
+                    <h4>🎵 Dias com música</h4>
+                    <div id="musicBars"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-section" id="timelineSection">
+            <div class="timeline-title">⏳ Linha do Tempo do Nosso Amor</div>
+            <div class="timeline-scroll" id="timelineScroll"></div>
+        </div>
+
+        <div class="album-grid" id="albumGrid">
+            <div class="empty-message" id="emptyMessage">
+                ✨ Nossa história ainda não começou aqui...<br />
+                Clique em "+ Fotos" para adicionar suas lembranças!
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL PERSONALIZAÇÃO ===== -->
+    <div class="modal-overlay hidden" id="customizeModal">
+        <div class="modal-box customize-modal-box">
+            <h2>🎨 Personalizar Álbum</h2>
+            <p>Deixe o álbum com a sua cara</p>
+
+            <label>🪵 Tema da Mesa</label>
+            <div class="theme-picker" id="themePicker">
+                <button type="button" class="theme-option" data-theme="wood-light" style="background:linear-gradient(135deg,#e8d9bd,#b89b73);">Madeira Clara</button>
+                <button type="button" class="theme-option" data-theme="wood-dark" style="background:linear-gradient(135deg,#5a4030,#2a1a10);">Madeira Escura</button>
+                <button type="button" class="theme-option" data-theme="paper" style="background:linear-gradient(135deg,#fdfaf0,#e8dcc0);color:#2a2a2a;text-shadow:none;">Papel Kraft</button>
+                <button type="button" class="theme-option" data-theme="white" style="background:linear-gradient(135deg,#ffffff,#e8e8e8);color:#2a2a2a;text-shadow:none;">Mesa Branca</button>
+                <button type="button" class="theme-option" data-theme="black" style="background:linear-gradient(135deg,#3a3a3a,#0a0a0a);">Mesa Preta</button>
+                <button type="button" class="theme-option" data-theme="pink" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);color:#2a2a2a;text-shadow:none;">Mesa Rosa</button>
+                <button type="button" class="theme-option" data-theme="mint" style="background:linear-gradient(135deg,#e0f2e8,#a8d5ba);color:#2a2a2a;text-shadow:none;">Mesa Menta</button>
+                <button type="button" class="theme-option" data-theme="lavender" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);color:#2a2a2a;text-shadow:none;">Mesa Lavanda</button>
+            </div>
+
+            <label>✒️ Fonte do Título</label>
+            <select id="titleFontSelect">
+                <option value="'Great Vibes', cursive">Great Vibes (cursiva)</option>
+                <option value="'Dancing Script', cursive">Dancing Script</option>
+                <option value="'Sacramento', cursive">Sacramento</option>
+                <option value="'Caveat', cursive">Caveat (manuscrita)</option>
+                <option value="'Indie Flower', cursive">Indie Flower</option>
+                <option value="'Shadows Into Light', cursive">Shadows Into Light</option>
+                <option value="'Kalam', cursive">Kalam</option>
+                <option value="'Playfair Display', serif">Playfair Display</option>
+                <option value="'Quicksand', sans-serif">Quicksand</option>
+                <option value="__custom__">➕ Adicionar fonte por link...</option>
+            </select>
+
+            <div id="customTitleFontDiv" class="custom-font-div hidden">
+                <label>🔗 Nome da fonte (Google Fonts)</label>
+                <input type="text" id="customTitleFontInput" placeholder="Ex: Lobster, Pacifico, Lora, Bebas Neue" />
+                <small class="custom-font-help">
+                    Digite o <strong>nome da família</strong> como aparece no Google Fonts.
+                    Ex: <code>Lobster</code>, <code>Pacifico</code>, <code>Lora</code>, <code>Bebas Neue</code>.
+                </small>
+            </div>
+
+            <label>🎨 Cor do Título</label>
+            <div class="color-picker" id="titleColorPicker">
+                <button type="button" class="color-option" data-color="#c9a86a" style="background:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#f5f5f5" style="background:#f5f5f5;"></button>
+                <button type="button" class="color-option" data-color="#e8b4c4" style="background:#e8b4c4;"></button>
+                <button type="button" class="color-option" data-color="#7a3b4a" style="background:#7a3b4a;"></button>
+                <button type="button" class="color-option" data-color="#4a7a6b" style="background:#4a7a6b;"></button>
+                <button type="button" class="color-option" data-color="#1a3a6a" style="background:#1a3a6a;"></button>
+                <button type="button" class="color-option" data-color="#8a4a20" style="background:#8a4a20;"></button>
+                <button type="button" class="color-option" data-color="#b06b7d" style="background:#b06b7d;"></button>
+            </div>
+
+            <label>📝 Fonte das Legendas</label>
+            <select id="textFontSelect">
+                <option value="'Great Vibes', cursive">Great Vibes (cursiva)</option>
+                <option value="'Dancing Script', cursive">Dancing Script</option>
+                <option value="'Sacramento', cursive">Sacramento</option>
+                <option value="'Caveat', cursive">Caveat (manuscrita)</option>
+                <option value="'Indie Flower', cursive">Indie Flower</option>
+                <option value="'Shadows Into Light', cursive">Shadows Into Light</option>
+                <option value="'Kalam', cursive">Kalam</option>
+                <option value="'Playfair Display', serif">Playfair Display</option>
+                <option value="'Quicksand', sans-serif">Quicksand</option>
+                <option value="__custom__">➕ Adicionar fonte por link...</option>
+            </select>
+
+            <div id="customTextFontDiv" class="custom-font-div hidden">
+                <label>🔗 Nome da fonte (Google Fonts)</label>
+                <input type="text" id="customTextFontInput" placeholder="Ex: Lobster, Pacifico, Lora, Bebas Neue" />
+                <small class="custom-font-help">
+                    Digite o <strong>nome da família</strong> como aparece no Google Fonts.
+                </small>
+            </div>
+
+            <label>🎨 Cor das Legendas</label>
+            <div class="color-picker" id="textColorPicker">
+                <button type="button" class="color-option" data-color="#f5f5f5" style="background:#f5f5f5;"></button>
+                <button type="button" class="color-option" data-color="#c9a86a" style="background:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#e8b4c4" style="background:#e8b4c4;"></button>
+                <button type="button" class="color-option" data-color="#a8d5ba" style="background:#a8d5ba;"></button>
+                <button type="button" class="color-option" data-color="#f0c8a0" style="background:#f0c8a0;"></button>
+                <button type="button" class="color-option" data-color="#c5cae9" style="background:#c5cae9;"></button>
+                <button type="button" class="color-option" data-color="#2a2a2a" style="background:#2a2a2a;"></button>
+                <button type="button" class="color-option" data-color="#7a3b4a" style="background:#7a3b4a;"></button>
+            </div>
+
+            <label>📄 Cor das Páginas (cards)</label>
+            <div class="color-picker" id="pageColorPicker">
+                <button type="button" class="color-option" data-color="#1a1a1a" style="background:#1a1a1a;border-color:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#2a201a" style="background:#2a201a;border-color:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#1a2a3a" style="background:#1a2a3a;border-color:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#2a1a2a" style="background:#2a1a2a;border-color:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#1a2a1a" style="background:#1a2a1a;border-color:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#3a2a1a" style="background:#3a2a1a;border-color:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#fdfaf0" style="background:#fdfaf0;"></button>
+                <button type="button" class="color-option" data-color="#f0e4d0" style="background:#f0e4d0;"></button>
+            </div>
+
+            <label>✨ Cor dos Detalhes (dourado/badges)</label>
+            <div class="color-picker" id="accentColorPicker">
+                <button type="button" class="color-option" data-color="#c9a86a" style="background:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#e8b4c4" style="background:#e8b4c4;"></button>
+                <button type="button" class="color-option" data-color="#a8d5ba" style="background:#a8d5ba;"></button>
+                <button type="button" class="color-option" data-color="#c5cae9" style="background:#c5cae9;"></button>
+                <button type="button" class="color-option" data-color="#f0c8a0" style="background:#f0c8a0;"></button>
+                <button type="button" class="color-option" data-color="#b06b7d" style="background:#b06b7d;"></button>
+                <button type="button" class="color-option" data-color="#f5f5f5" style="background:#f5f5f5;"></button>
+                <button type="button" class="color-option" data-color="#7a3b4a" style="background:#7a3b4a;"></button>
+            </div>
+
+            <label>🖼️ Fundo das Fotos (moldura)</label>
+            <div class="color-picker" id="photoFramePicker">
+                <button type="button" class="color-option" data-color="#fefefe" style="background:#fefefe;"></button>
+                <button type="button" class="color-option" data-color="#fdfaf0" style="background:#fdfaf0;"></button>
+                <button type="button" class="color-option" data-color="#f0e4d0" style="background:#f0e4d0;"></button>
+                <button type="button" class="color-option" data-color="#fce4ec" style="background:#fce4ec;"></button>
+                <button type="button" class="color-option" data-color="#e3f2e8" style="background:#e3f2e8;"></button>
+                <button type="button" class="color-option" data-color="#e8eaf6" style="background:#e8eaf6;"></button>
+                <button type="button" class="color-option" data-color="#1a1a1a" style="background:#1a1a1a;border-color:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#2a1a10" style="background:#2a1a10;"></button>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" id="btnResetCustomize">↺ Restaurar</button>
+                <button class="btn-save" id="btnCloseCustomize">💾 Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL EDIÇÃO ===== -->
+    <div class="modal-overlay hidden" id="editModal">
+        <div class="modal-box">
+            <h2>✏️ Editar Dia Especial</h2>
+            <p style="font-size:0.85rem;opacity:0.7;text-align:center;margin-bottom:10px;">
+                Todas as fotos deste dia compartilham a mesma legenda, data e música
+            </p>
+
+            <label for="editText">📝 Legenda do Dia</label>
+            <textarea id="editText" placeholder="Ex: Nosso primeiro beijo..."></textarea>
+
+            <label for="editDate">📅 Data</label>
+            <input type="date" id="editDate" />
+
+            <label for="editMusic">🎵 Música do Dia</label>
+            <select id="editMusic">
+                <option value="">Nenhuma música</option>
+                <option value="custom">🔗 URL personalizada</option>
+            </select>
+
+            <div id="customMusicDiv" style="display:none;margin-top:8px;">
+                <label>🔗 URL da música</label>
+                <input type="text" id="editCustomMusic"
+                    placeholder="https://www.youtube.com/watch?v=... ou https://open.spotify.com/track/..." />
+                <small style="display:block;margin-top:4px;font-size:0.7rem;opacity:0.6;">
+                    Funciona com: YouTube, Spotify, SoundCloud, ou link direto MP3
+                </small>
+            </div>
+
+            <div style="margin-top:12px;">
+                <label>📚 Biblioteca Online</label>
+                <input type="text" class="music-search" id="musicSearch" placeholder="🔍 Buscar música..." />
+                <div class="music-library" id="musicLibrary"></div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" id="btnCancelEdit">Cancelar</button>
+                <button class="btn-save" id="btnSaveEdit">💾 Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SELETOR DE DIA ===== -->
+    <div class="modal-overlay hidden" id="notePickDayModal">
+        <div class="modal-box note-pickday-box">
+            <h2>✎ Para qual dia?</h2>
+            <p>Escolha o dia que vai receber o lembrete</p>
+            <div class="note-day-list" id="noteDayList"></div>
+            <div class="modal-actions">
+                <button class="btn-cancel" id="btnCancelPickDay">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL LEMBRETE ===== -->
+    <div class="modal-overlay hidden" id="noteModal">
+        <div class="modal-box note-modal-box">
+            <h2>✎ Escrever um Lembrete</h2>
+            <p>Uma mensagem para guardar junto das fotos</p>
+
+            <label for="noteText">💌 Mensagem</label>
+            <textarea id="noteText" rows="4" placeholder="Escreva algo do coração..."></textarea>
+
+            <label>🖋️ Fonte</label>
+            <div class="font-picker" id="fontPicker">
+                <button type="button" class="font-option" data-font="'Great Vibes', cursive" style="font-family:'Great Vibes',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Dancing Script', cursive" style="font-family:'Dancing Script',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Sacramento', cursive" style="font-family:'Sacramento',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Caveat', cursive" style="font-family:'Caveat',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Indie Flower', cursive" style="font-family:'Indie Flower',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Shadows Into Light', cursive" style="font-family:'Shadows Into Light',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Kalam', cursive" style="font-family:'Kalam',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Playfair Display', serif" style="font-family:'Playfair Display',serif;font-style:italic;">Amor</button>
+            </div>
+
+            <label>🎨 Cor do Papel</label>
+            <div class="color-picker" id="paperPicker">
+                <button type="button" class="color-option" data-color="#fdfaf0" style="background:#fdfaf0;"></button>
+                <button type="button" class="color-option" data-color="#f0e4d0" style="background:#f0e4d0;"></button>
+                <button type="button" class="color-option" data-color="#e8d5b8" style="background:#e8d5b8;"></button>
+                <button type="button" class="color-option" data-color="#fce4ec" style="background:#fce4ec;"></button>
+                <button type="button" class="color-option" data-color="#fff8e1" style="background:#fff8e1;"></button>
+                <button type="button" class="color-option" data-color="#e3f2e8" style="background:#e3f2e8;"></button>
+                <button type="button" class="color-option" data-color="#e8eaf6" style="background:#e8eaf6;"></button>
+                <button type="button" class="color-option" data-color="#1a1a1a" style="background:#1a1a1a;border-color:#c9a86a;"></button>
+            </div>
+
+            <label>🖊️ Cor da Tinta</label>
+            <div class="color-picker" id="inkPicker">
+                <button type="button" class="color-option" data-color="#2a2a2a" style="background:#2a2a2a;"></button>
+                <button type="button" class="color-option" data-color="#5a3a2a" style="background:#5a3a2a;"></button>
+                <button type="button" class="color-option" data-color="#1a3a6a" style="background:#1a3a6a;"></button>
+                <button type="button" class="color-option" data-color="#7a3b4a" style="background:#7a3b4a;"></button>
+                <button type="button" class="color-option" data-color="#b06b7d" style="background:#b06b7d;"></button>
+                <button type="button" class="color-option" data-color="#c9a86a" style="background:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#f5f5f5" style="background:#f5f5f5;border-color:#c9a86a;"></button>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" id="btnCancelNote">Cancelar</button>
+                <button class="btn-save" id="btnSaveNote">💾 Salvar Lembrete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL LEMBRETE POR FOTO ===== -->
+    <div class="modal-overlay hidden" id="photoNoteModal">
+        <div class="modal-box note-modal-box">
+            <h2>✎ Lembrete da Foto</h2>
+            <p>Um bilhetinho colado nesta foto específica</p>
+
+            <label for="photoNoteText">💌 Mensagem</label>
+            <textarea id="photoNoteText" rows="4" placeholder="Escreva algo sobre esta foto..."></textarea>
+
+            <label>🖋️ Fonte</label>
+            <div class="font-picker" id="photoFontPicker">
+                <button type="button" class="font-option" data-font="'Great Vibes', cursive" style="font-family:'Great Vibes',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Dancing Script', cursive" style="font-family:'Dancing Script',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Sacramento', cursive" style="font-family:'Sacramento',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Caveat', cursive" style="font-family:'Caveat',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Indie Flower', cursive" style="font-family:'Indie Flower',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Shadows Into Light', cursive" style="font-family:'Shadows Into Light',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Kalam', cursive" style="font-family:'Kalam',cursive;">Amor</button>
+                <button type="button" class="font-option" data-font="'Playfair Display', serif" style="font-family:'Playfair Display',serif;font-style:italic;">Amor</button>
+            </div>
+
+            <label>🎨 Cor do Papel</label>
+            <div class="color-picker" id="photoPaperPicker">
+                <button type="button" class="color-option" data-color="#fdfaf0" style="background:#fdfaf0;"></button>
+                <button type="button" class="color-option" data-color="#f0e4d0" style="background:#f0e4d0;"></button>
+                <button type="button" class="color-option" data-color="#e8d5b8" style="background:#e8d5b8;"></button>
+                <button type="button" class="color-option" data-color="#fce4ec" style="background:#fce4ec;"></button>
+                <button type="button" class="color-option" data-color="#fff8e1" style="background:#fff8e1;"></button>
+                <button type="button" class="color-option" data-color="#e3f2e8" style="background:#e3f2e8;"></button>
+                <button type="button" class="color-option" data-color="#e8eaf6" style="background:#e8eaf6;"></button>
+                <button type="button" class="color-option" data-color="#1a1a1a" style="background:#1a1a1a;border-color:#c9a86a;"></button>
+            </div>
+
+            <label>🖊️ Cor da Tinta</label>
+            <div class="color-picker" id="photoInkPicker">
+                <button type="button" class="color-option" data-color="#2a2a2a" style="background:#2a2a2a;"></button>
+                <button type="button" class="color-option" data-color="#5a3a2a" style="background:#5a3a2a;"></button>
+                <button type="button" class="color-option" data-color="#1a3a6a" style="background:#1a3a6a;"></button>
+                <button type="button" class="color-option" data-color="#7a3b4a" style="background:#7a3b4a;"></button>
+                <button type="button" class="color-option" data-color="#b06b7d" style="background:#b06b7d;"></button>
+                <button type="button" class="color-option" data-color="#c9a86a" style="background:#c9a86a;"></button>
+                <button type="button" class="color-option" data-color="#f5f5f5" style="background:#f5f5f5;border-color:#c9a86a;"></button>
+            </div>
+
+            <label>📐 Tamanho do Bilhete</label>
+            <div class="size-picker" id="photoSizePicker">
+                <button type="button" class="size-option" data-size="small">Pequeno</button>
+                <button type="button" class="size-option" data-size="medium">Médio</button>
+                <button type="button" class="size-option" data-size="large">Grande</button>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" id="btnCancelPhotoNote">Cancelar</button>
+                <button class="btn-save" id="btnSavePhotoNote">💾 Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox-overlay hidden" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">✕</button>
+            <img id="lightboxImg" src="" alt="Foto ampliada" />
+            <div class="lightbox-info" id="lightboxInfo"></div>
+            <div class="lightbox-nav">
+                <button class="lightbox-prev" id="lightboxPrev">‹</button>
+                <button class="lightbox-next" id="lightboxNext">›</button>
+            </div>
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="cloudinary-config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
