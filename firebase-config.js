@@ -9,9 +9,4 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
-// Guardamos essa referência numa variável global simples (db) para o
-// script.js poder usar direto. As fotos agora ficam no Cloudinary — veja
-// cloudinary-config.js — então não precisamos mais do Firebase Storage aqui.
 const db = firebase.firestore();
-

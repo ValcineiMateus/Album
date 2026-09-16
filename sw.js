@@ -1,8 +1,8 @@
 // ===== SERVICE WORKER =====
-const CACHE_NAME = 'album-amor-v2';
+const CACHE_NAME = 'album-amor-v14';
 const ASSETS = [
     'index.html',
-    'style.css',
+    'style.css?v=14',
     'script.js',
     'firebase-config.js',
     'cloudinary-config.js',
@@ -11,25 +11,21 @@ const ASSETS = [
     'icons/icon-512.png'
 ];
 
-// Instalação
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('Cache aberto');
-                return cache.addAll(ASSETS);
-            })
+            .then((cache) => cache.addAll(ASSETS))
             .then(() => self.skipWaiting())
     );
 });
 
-// Ativação
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
                     if (cacheName !== CACHE_NAME) {
+                        console.log('Removendo cache antigo:', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
@@ -38,36 +34,29 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Interceptação de requisições
-// FIX: antes era "cache primeiro" (só buscava na internet se não achasse no
-// cache) — então mesmo com internet, o app continuava servindo a versão
-// antiga guardada no aparelho e nunca via as atualizações que você subia
-// no Git. Agora é "rede primeiro": sempre tenta buscar a versão mais nova
-// online; só usa o que está guardado no aparelho se a pessoa estiver
-// offline (sem internet).
 self.addEventListener('fetch', (event) => {
+    if (event.request.url.includes('firebase') ||
+        event.request.url.includes('cloudinary') ||
+        event.request.url.includes('googleapis') ||
+        event.request.url.includes('gstatic')) {
+        return;
+    }
+
     event.respondWith(
-        fetch(event.request.clone())
+        fetch(event.request)
             .then((response) => {
-                // Verifica se é uma resposta válida
                 if (!response || response.status !== 200 || response.type !== 'basic') {
                     return response;
                 }
-
-                // Clona a resposta e guarda uma cópia atualizada no cache,
-                // pra caso a pessoa fique offline mais tarde
                 const responseToCache = response.clone();
                 caches.open(CACHE_NAME).then((cache) => {
-                    // Não armazena imagens grandes (fotos do usuário)
                     if (!event.request.url.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
                         cache.put(event.request, responseToCache);
                     }
                 });
-
                 return response;
             })
             .catch(() => {
-                // Sem internet: usa o que já está guardado no aparelho
                 return caches.match(event.request).then((cached) => {
                     if (cached) return cached;
                     if (event.request.mode === 'navigate') {

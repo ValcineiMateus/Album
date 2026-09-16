@@ -1,11 +1,11 @@
 {
     "name": "Nosso Álbum de Amor",
     "short_name": "Álbum de Amor",
-    "description": "Álbum de fotos do nosso amor - do primeiro beijo até hoje",
+    "description": "Álbum de fotos do nosso amor",
     "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#f0f5f0",
-    "theme_color": "#f0f5f0",
+    "background_color": "#d9c7a8",
+    "theme_color": "#d9c7a8",
     "orientation": "portrait",
     "categories": ["lifestyle", "photo", "social"],
     "lang": "pt-BR",
@@ -21,15 +21,6 @@
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
-        }
-    ],
-    "screenshots": [
-        {
-            "src": "icons/screenshot-1.png",
-            "sizes": "1080x1920",
-            "type": "image/png",
-            "platform": "android",
-            "label": "Álbum de Fotos"
         }
     ]
 }
