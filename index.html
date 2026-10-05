@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <meta name="theme-color" content="#d9c7a8" />
+    <meta name="theme-color" content="#0c0a14" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Nosso Álbum" />
@@ -19,7 +19,11 @@
         href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;600&family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&family=Indie+Flower&family=Shadows+Into+Light&family=Kalam:wght@400;700&family=Sacramento&display=swap"
         rel="stylesheet" />
 
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Alex+Brush&family=Pinyon+Script&family=Parisienne&family=Italianno&family=Petit+Formal+Script&family=Rouge+Script&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Bodoni+Moda:wght@400;700&family=DM+Serif+Display&family=Abril+Fatface&family=Italiana&family=Marcellus&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=League+Gothic&family=Oswald:wght@400;600;700&family=Big+Shoulders+Display:wght@700;900&family=Archivo+Black&family=Alfa+Slab+One&family=Rubik+Distressed&family=Special+Elite&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css?v=14" />
+    <link rel="stylesheet" href="modern.css?v=4" />
 </head>
 
 <body class="theme-wood-light cover-closed">
@@ -225,6 +229,36 @@
                 <option value="'Kalam', cursive">Kalam</option>
                 <option value="'Playfair Display', serif">Playfair Display</option>
                 <option value="'Quicksand', sans-serif">Quicksand</option>
+                <optgroup label="✨ Cursivas elegantes">
+                    <option value="'Allura', cursive" style="font-family:'Allura', cursive">Allura</option>
+                    <option value="'Alex Brush', cursive" style="font-family:'Alex Brush', cursive">Alex Brush</option>
+                    <option value="'Pinyon Script', cursive" style="font-family:'Pinyon Script', cursive">Pinyon Script</option>
+                    <option value="'Parisienne', cursive" style="font-family:'Parisienne', cursive">Parisienne</option>
+                    <option value="'Italianno', cursive" style="font-family:'Italianno', cursive">Italianno</option>
+                    <option value="'Petit Formal Script', cursive" style="font-family:'Petit Formal Script', cursive">Petit Formal Script</option>
+                    <option value="'Rouge Script', cursive" style="font-family:'Rouge Script', cursive">Rouge Script</option>
+                </optgroup>
+                <optgroup label="🏛️ Serifadas clássicas">
+                    <option value="'Cormorant Garamond', serif" style="font-family:'Cormorant Garamond', serif">Cormorant Garamond</option>
+                    <option value="'Cinzel', serif" style="font-family:'Cinzel', serif">Cinzel</option>
+                    <option value="'Cinzel Decorative', serif" style="font-family:'Cinzel Decorative', serif">Cinzel Decorative</option>
+                    <option value="'Bodoni Moda', serif" style="font-family:'Bodoni Moda', serif">Bodoni Moda</option>
+                    <option value="'DM Serif Display', serif" style="font-family:'DM Serif Display', serif">DM Serif Display</option>
+                    <option value="'Abril Fatface', serif" style="font-family:'Abril Fatface', serif">Abril Fatface</option>
+                    <option value="'Italiana', serif" style="font-family:'Italiana', serif">Italiana</option>
+                    <option value="'Marcellus', serif" style="font-family:'Marcellus', serif">Marcellus</option>
+                </optgroup>
+                <optgroup label="🔥 Grandes e marcantes">
+                    <option value="'Anton', sans-serif" style="font-family:'Anton', sans-serif">Anton</option>
+                    <option value="'Bebas Neue', sans-serif" style="font-family:'Bebas Neue', sans-serif">Bebas Neue</option>
+                    <option value="'League Gothic', sans-serif" style="font-family:'League Gothic', sans-serif">League Gothic</option>
+                    <option value="'Oswald', sans-serif" style="font-family:'Oswald', sans-serif">Oswald</option>
+                    <option value="'Big Shoulders Display', sans-serif" style="font-family:'Big Shoulders Display', sans-serif">Big Shoulders Display</option>
+                    <option value="'Archivo Black', sans-serif" style="font-family:'Archivo Black', sans-serif">Archivo Black</option>
+                    <option value="'Alfa Slab One', serif" style="font-family:'Alfa Slab One', serif">Alfa Slab One</option>
+                    <option value="'Rubik Distressed', sans-serif" style="font-family:'Rubik Distressed', sans-serif">Rubik Distressed</option>
+                    <option value="'Special Elite', cursive" style="font-family:'Special Elite', cursive">Special Elite</option>
+                </optgroup>
                 <option value="__custom__">➕ Adicionar fonte por link...</option>
             </select>
 
@@ -247,6 +281,9 @@
                 <button type="button" class="color-option" data-color="#1a3a6a" style="background:#1a3a6a;"></button>
                 <button type="button" class="color-option" data-color="#8a4a20" style="background:#8a4a20;"></button>
                 <button type="button" class="color-option" data-color="#b06b7d" style="background:#b06b7d;"></button>
+            
+                <button type="button" class="color-option color-wheel-btn" data-color="" hidden></button>
+                <label class="color-wheel-wrap" title="Escolher cor personalizada"><input type="color" class="color-wheel-input" value="#c9a86a" aria-label="Roda de cores"></label>
             </div>
 
             <label>📝 Fonte das Legendas</label>
@@ -260,6 +297,36 @@
                 <option value="'Kalam', cursive">Kalam</option>
                 <option value="'Playfair Display', serif">Playfair Display</option>
                 <option value="'Quicksand', sans-serif">Quicksand</option>
+                <optgroup label="✨ Cursivas elegantes">
+                    <option value="'Allura', cursive" style="font-family:'Allura', cursive">Allura</option>
+                    <option value="'Alex Brush', cursive" style="font-family:'Alex Brush', cursive">Alex Brush</option>
+                    <option value="'Pinyon Script', cursive" style="font-family:'Pinyon Script', cursive">Pinyon Script</option>
+                    <option value="'Parisienne', cursive" style="font-family:'Parisienne', cursive">Parisienne</option>
+                    <option value="'Italianno', cursive" style="font-family:'Italianno', cursive">Italianno</option>
+                    <option value="'Petit Formal Script', cursive" style="font-family:'Petit Formal Script', cursive">Petit Formal Script</option>
+                    <option value="'Rouge Script', cursive" style="font-family:'Rouge Script', cursive">Rouge Script</option>
+                </optgroup>
+                <optgroup label="🏛️ Serifadas clássicas">
+                    <option value="'Cormorant Garamond', serif" style="font-family:'Cormorant Garamond', serif">Cormorant Garamond</option>
+                    <option value="'Cinzel', serif" style="font-family:'Cinzel', serif">Cinzel</option>
+                    <option value="'Cinzel Decorative', serif" style="font-family:'Cinzel Decorative', serif">Cinzel Decorative</option>
+                    <option value="'Bodoni Moda', serif" style="font-family:'Bodoni Moda', serif">Bodoni Moda</option>
+                    <option value="'DM Serif Display', serif" style="font-family:'DM Serif Display', serif">DM Serif Display</option>
+                    <option value="'Abril Fatface', serif" style="font-family:'Abril Fatface', serif">Abril Fatface</option>
+                    <option value="'Italiana', serif" style="font-family:'Italiana', serif">Italiana</option>
+                    <option value="'Marcellus', serif" style="font-family:'Marcellus', serif">Marcellus</option>
+                </optgroup>
+                <optgroup label="🔥 Grandes e marcantes">
+                    <option value="'Anton', sans-serif" style="font-family:'Anton', sans-serif">Anton</option>
+                    <option value="'Bebas Neue', sans-serif" style="font-family:'Bebas Neue', sans-serif">Bebas Neue</option>
+                    <option value="'League Gothic', sans-serif" style="font-family:'League Gothic', sans-serif">League Gothic</option>
+                    <option value="'Oswald', sans-serif" style="font-family:'Oswald', sans-serif">Oswald</option>
+                    <option value="'Big Shoulders Display', sans-serif" style="font-family:'Big Shoulders Display', sans-serif">Big Shoulders Display</option>
+                    <option value="'Archivo Black', sans-serif" style="font-family:'Archivo Black', sans-serif">Archivo Black</option>
+                    <option value="'Alfa Slab One', serif" style="font-family:'Alfa Slab One', serif">Alfa Slab One</option>
+                    <option value="'Rubik Distressed', sans-serif" style="font-family:'Rubik Distressed', sans-serif">Rubik Distressed</option>
+                    <option value="'Special Elite', cursive" style="font-family:'Special Elite', cursive">Special Elite</option>
+                </optgroup>
                 <option value="__custom__">➕ Adicionar fonte por link...</option>
             </select>
 
@@ -281,6 +348,9 @@
                 <button type="button" class="color-option" data-color="#c5cae9" style="background:#c5cae9;"></button>
                 <button type="button" class="color-option" data-color="#2a2a2a" style="background:#2a2a2a;"></button>
                 <button type="button" class="color-option" data-color="#7a3b4a" style="background:#7a3b4a;"></button>
+            
+                <button type="button" class="color-option color-wheel-btn" data-color="" hidden></button>
+                <label class="color-wheel-wrap" title="Escolher cor personalizada"><input type="color" class="color-wheel-input" value="#c9a86a" aria-label="Roda de cores"></label>
             </div>
 
             <label>📄 Cor das Páginas (cards)</label>
@@ -293,6 +363,9 @@
                 <button type="button" class="color-option" data-color="#3a2a1a" style="background:#3a2a1a;border-color:#c9a86a;"></button>
                 <button type="button" class="color-option" data-color="#fdfaf0" style="background:#fdfaf0;"></button>
                 <button type="button" class="color-option" data-color="#f0e4d0" style="background:#f0e4d0;"></button>
+            
+                <button type="button" class="color-option color-wheel-btn" data-color="" hidden></button>
+                <label class="color-wheel-wrap" title="Escolher cor personalizada"><input type="color" class="color-wheel-input" value="#c9a86a" aria-label="Roda de cores"></label>
             </div>
 
             <label>✨ Cor dos Detalhes (dourado/badges)</label>
@@ -305,6 +378,9 @@
                 <button type="button" class="color-option" data-color="#b06b7d" style="background:#b06b7d;"></button>
                 <button type="button" class="color-option" data-color="#f5f5f5" style="background:#f5f5f5;"></button>
                 <button type="button" class="color-option" data-color="#7a3b4a" style="background:#7a3b4a;"></button>
+            
+                <button type="button" class="color-option color-wheel-btn" data-color="" hidden></button>
+                <label class="color-wheel-wrap" title="Escolher cor personalizada"><input type="color" class="color-wheel-input" value="#c9a86a" aria-label="Roda de cores"></label>
             </div>
 
             <label>🖼️ Fundo das Fotos (moldura)</label>
@@ -317,6 +393,9 @@
                 <button type="button" class="color-option" data-color="#e8eaf6" style="background:#e8eaf6;"></button>
                 <button type="button" class="color-option" data-color="#1a1a1a" style="background:#1a1a1a;border-color:#c9a86a;"></button>
                 <button type="button" class="color-option" data-color="#2a1a10" style="background:#2a1a10;"></button>
+            
+                <button type="button" class="color-option color-wheel-btn" data-color="" hidden></button>
+                <label class="color-wheel-wrap" title="Escolher cor personalizada"><input type="color" class="color-wheel-input" value="#c9a86a" aria-label="Roda de cores"></label>
             </div>
 
             <div class="modal-actions">
@@ -399,6 +478,39 @@
                 <button type="button" class="font-option" data-font="'Shadows Into Light', cursive" style="font-family:'Shadows Into Light',cursive;">Amor</button>
                 <button type="button" class="font-option" data-font="'Kalam', cursive" style="font-family:'Kalam',cursive;">Amor</button>
                 <button type="button" class="font-option" data-font="'Playfair Display', serif" style="font-family:'Playfair Display',serif;font-style:italic;">Amor</button>
+                <button type="button" class="font-option" data-font="'Bebas Neue', sans-serif" style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;">Amor</button>
+                <button type="button" class="font-option" data-font="'Allura', cursive" style="font-family:'Allura',cursive;font-size:1.5rem;" title="Allura">Amor</button>
+                <button type="button" class="font-option" data-font="'Alex Brush', cursive" style="font-family:'Alex Brush',cursive;font-size:1.5rem;" title="Alex Brush">Amor</button>
+                <button type="button" class="font-option" data-font="'Pinyon Script', cursive" style="font-family:'Pinyon Script',cursive;font-size:1.4rem;" title="Pinyon Script">Amor</button>
+                <button type="button" class="font-option" data-font="'Parisienne', cursive" style="font-family:'Parisienne',cursive;font-size:1.4rem;" title="Parisienne">Amor</button>
+                <button type="button" class="font-option" data-font="'Italianno', cursive" style="font-family:'Italianno',cursive;font-size:1.6rem;" title="Italianno">Amor</button>
+                <button type="button" class="font-option" data-font="'Petit Formal Script', cursive" style="font-family:'Petit Formal Script',cursive;font-size:1.2rem;" title="Petit Formal Script">Amor</button>
+                <button type="button" class="font-option" data-font="'Rouge Script', cursive" style="font-family:'Rouge Script',cursive;font-size:1.5rem;" title="Rouge Script">Amor</button>
+                <button type="button" class="font-option" data-font="'Cormorant Garamond', serif" style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;" title="Cormorant Garamond">Amor</button>
+                <button type="button" class="font-option" data-font="'Cinzel', serif" style="font-family:'Cinzel',serif;font-size:1.1rem;" title="Cinzel">Amor</button>
+                <button type="button" class="font-option" data-font="'Cinzel Decorative', serif" style="font-family:'Cinzel Decorative',serif;font-size:1.1rem;" title="Cinzel Decorative">Amor</button>
+                <button type="button" class="font-option" data-font="'Bodoni Moda', serif" style="font-family:'Bodoni Moda',serif;font-size:1.1rem;" title="Bodoni Moda">Amor</button>
+                <button type="button" class="font-option" data-font="'DM Serif Display', serif" style="font-family:'DM Serif Display',serif;font-size:1.1rem;" title="DM Serif Display">Amor</button>
+                <button type="button" class="font-option" data-font="'Abril Fatface', serif" style="font-family:'Abril Fatface',serif;font-size:1.1rem;" title="Abril Fatface">Amor</button>
+                <button type="button" class="font-option" data-font="'Italiana', serif" style="font-family:'Italiana',serif;font-size:1.2rem;" title="Italiana">Amor</button>
+                <button type="button" class="font-option" data-font="'Marcellus', serif" style="font-family:'Marcellus',serif;font-size:1.1rem;" title="Marcellus">Amor</button>
+                <button type="button" class="font-option" data-font="'Anton', sans-serif" style="font-family:'Anton',sans-serif;font-size:1.1rem;" title="Anton">Amor</button>
+                <button type="button" class="font-option" data-font="'League Gothic', sans-serif" style="font-family:'League Gothic',sans-serif;font-size:1.3rem;" title="League Gothic">Amor</button>
+                <button type="button" class="font-option" data-font="'Oswald', sans-serif" style="font-family:'Oswald',sans-serif;font-size:1.1rem;" title="Oswald">Amor</button>
+                <button type="button" class="font-option" data-font="'Big Shoulders Display', sans-serif" style="font-family:'Big Shoulders Display',sans-serif;font-size:1.2rem;" title="Big Shoulders Display">Amor</button>
+                <button type="button" class="font-option" data-font="'Archivo Black', sans-serif" style="font-family:'Archivo Black',sans-serif;font-size:1rem;" title="Archivo Black">Amor</button>
+                <button type="button" class="font-option" data-font="'Alfa Slab One', serif" style="font-family:'Alfa Slab One',serif;font-size:1rem;" title="Alfa Slab One">Amor</button>
+                <button type="button" class="font-option" data-font="'Rubik Distressed', sans-serif" style="font-family:'Rubik Distressed',sans-serif;font-size:1.1rem;" title="Rubik Distressed">Amor</button>
+                <button type="button" class="font-option" data-font="'Special Elite', cursive" style="font-family:'Special Elite',cursive;font-size:1.1rem;" title="Special Elite">Amor</button>
+            </div>
+
+            <label>🔠 Tamanho das Letras</label>
+            <div class="size-picker" id="noteSizePicker">
+                <button type="button" class="size-option" data-size="small">Pequeno</button>
+                <button type="button" class="size-option" data-size="medium">Médio</button>
+                <button type="button" class="size-option" data-size="large">Grande</button>
+                <button type="button" class="size-option" data-size="xl">Extra grande</button>
+                <button type="button" class="size-option" data-size="xxl">Gigante</button>
             </div>
 
             <label>🎨 Cor do Papel</label>
@@ -411,7 +523,9 @@
                 <button type="button" class="color-option" data-color="#e3f2e8" style="background:#e3f2e8;"></button>
                 <button type="button" class="color-option" data-color="#e8eaf6" style="background:#e8eaf6;"></button>
                 <button type="button" class="color-option" data-color="#1a1a1a" style="background:#1a1a1a;border-color:#c9a86a;"></button>
-            </div>
+                <button type="button" class="color-option color-wheel-btn" data-color="" hidden></button>
+                <label class="color-wheel-wrap" title="Escolher cor personalizada"><input type="color" class="color-wheel-input" value="#fdfaf0" aria-label="Roda de cores"></label>
+                        </div>
 
             <label>🖊️ Cor da Tinta</label>
             <div class="color-picker" id="inkPicker">
@@ -422,7 +536,9 @@
                 <button type="button" class="color-option" data-color="#b06b7d" style="background:#b06b7d;"></button>
                 <button type="button" class="color-option" data-color="#c9a86a" style="background:#c9a86a;"></button>
                 <button type="button" class="color-option" data-color="#f5f5f5" style="background:#f5f5f5;border-color:#c9a86a;"></button>
-            </div>
+                <button type="button" class="color-option color-wheel-btn" data-color="" hidden></button>
+                <label class="color-wheel-wrap" title="Escolher cor personalizada"><input type="color" class="color-wheel-input" value="#2a2a2a" aria-label="Roda de cores"></label>
+                        </div>
 
             <div class="modal-actions">
                 <button class="btn-cancel" id="btnCancelNote">Cancelar</button>
@@ -450,6 +566,30 @@
                 <button type="button" class="font-option" data-font="'Shadows Into Light', cursive" style="font-family:'Shadows Into Light',cursive;">Amor</button>
                 <button type="button" class="font-option" data-font="'Kalam', cursive" style="font-family:'Kalam',cursive;">Amor</button>
                 <button type="button" class="font-option" data-font="'Playfair Display', serif" style="font-family:'Playfair Display',serif;font-style:italic;">Amor</button>
+                <button type="button" class="font-option" data-font="'Bebas Neue', sans-serif" style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;">Amor</button>
+                <button type="button" class="font-option" data-font="'Allura', cursive" style="font-family:'Allura',cursive;font-size:1.5rem;" title="Allura">Amor</button>
+                <button type="button" class="font-option" data-font="'Alex Brush', cursive" style="font-family:'Alex Brush',cursive;font-size:1.5rem;" title="Alex Brush">Amor</button>
+                <button type="button" class="font-option" data-font="'Pinyon Script', cursive" style="font-family:'Pinyon Script',cursive;font-size:1.4rem;" title="Pinyon Script">Amor</button>
+                <button type="button" class="font-option" data-font="'Parisienne', cursive" style="font-family:'Parisienne',cursive;font-size:1.4rem;" title="Parisienne">Amor</button>
+                <button type="button" class="font-option" data-font="'Italianno', cursive" style="font-family:'Italianno',cursive;font-size:1.6rem;" title="Italianno">Amor</button>
+                <button type="button" class="font-option" data-font="'Petit Formal Script', cursive" style="font-family:'Petit Formal Script',cursive;font-size:1.2rem;" title="Petit Formal Script">Amor</button>
+                <button type="button" class="font-option" data-font="'Rouge Script', cursive" style="font-family:'Rouge Script',cursive;font-size:1.5rem;" title="Rouge Script">Amor</button>
+                <button type="button" class="font-option" data-font="'Cormorant Garamond', serif" style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;" title="Cormorant Garamond">Amor</button>
+                <button type="button" class="font-option" data-font="'Cinzel', serif" style="font-family:'Cinzel',serif;font-size:1.1rem;" title="Cinzel">Amor</button>
+                <button type="button" class="font-option" data-font="'Cinzel Decorative', serif" style="font-family:'Cinzel Decorative',serif;font-size:1.1rem;" title="Cinzel Decorative">Amor</button>
+                <button type="button" class="font-option" data-font="'Bodoni Moda', serif" style="font-family:'Bodoni Moda',serif;font-size:1.1rem;" title="Bodoni Moda">Amor</button>
+                <button type="button" class="font-option" data-font="'DM Serif Display', serif" style="font-family:'DM Serif Display',serif;font-size:1.1rem;" title="DM Serif Display">Amor</button>
+                <button type="button" class="font-option" data-font="'Abril Fatface', serif" style="font-family:'Abril Fatface',serif;font-size:1.1rem;" title="Abril Fatface">Amor</button>
+                <button type="button" class="font-option" data-font="'Italiana', serif" style="font-family:'Italiana',serif;font-size:1.2rem;" title="Italiana">Amor</button>
+                <button type="button" class="font-option" data-font="'Marcellus', serif" style="font-family:'Marcellus',serif;font-size:1.1rem;" title="Marcellus">Amor</button>
+                <button type="button" class="font-option" data-font="'Anton', sans-serif" style="font-family:'Anton',sans-serif;font-size:1.1rem;" title="Anton">Amor</button>
+                <button type="button" class="font-option" data-font="'League Gothic', sans-serif" style="font-family:'League Gothic',sans-serif;font-size:1.3rem;" title="League Gothic">Amor</button>
+                <button type="button" class="font-option" data-font="'Oswald', sans-serif" style="font-family:'Oswald',sans-serif;font-size:1.1rem;" title="Oswald">Amor</button>
+                <button type="button" class="font-option" data-font="'Big Shoulders Display', sans-serif" style="font-family:'Big Shoulders Display',sans-serif;font-size:1.2rem;" title="Big Shoulders Display">Amor</button>
+                <button type="button" class="font-option" data-font="'Archivo Black', sans-serif" style="font-family:'Archivo Black',sans-serif;font-size:1rem;" title="Archivo Black">Amor</button>
+                <button type="button" class="font-option" data-font="'Alfa Slab One', serif" style="font-family:'Alfa Slab One',serif;font-size:1rem;" title="Alfa Slab One">Amor</button>
+                <button type="button" class="font-option" data-font="'Rubik Distressed', sans-serif" style="font-family:'Rubik Distressed',sans-serif;font-size:1.1rem;" title="Rubik Distressed">Amor</button>
+                <button type="button" class="font-option" data-font="'Special Elite', cursive" style="font-family:'Special Elite',cursive;font-size:1.1rem;" title="Special Elite">Amor</button>
             </div>
 
             <label>🎨 Cor do Papel</label>
@@ -462,7 +602,9 @@
                 <button type="button" class="color-option" data-color="#e3f2e8" style="background:#e3f2e8;"></button>
                 <button type="button" class="color-option" data-color="#e8eaf6" style="background:#e8eaf6;"></button>
                 <button type="button" class="color-option" data-color="#1a1a1a" style="background:#1a1a1a;border-color:#c9a86a;"></button>
-            </div>
+                <button type="button" class="color-option color-wheel-btn" data-color="" hidden></button>
+                <label class="color-wheel-wrap" title="Escolher cor personalizada"><input type="color" class="color-wheel-input" value="#fdfaf0" aria-label="Roda de cores"></label>
+                        </div>
 
             <label>🖊️ Cor da Tinta</label>
             <div class="color-picker" id="photoInkPicker">
@@ -473,13 +615,17 @@
                 <button type="button" class="color-option" data-color="#b06b7d" style="background:#b06b7d;"></button>
                 <button type="button" class="color-option" data-color="#c9a86a" style="background:#c9a86a;"></button>
                 <button type="button" class="color-option" data-color="#f5f5f5" style="background:#f5f5f5;border-color:#c9a86a;"></button>
-            </div>
+                <button type="button" class="color-option color-wheel-btn" data-color="" hidden></button>
+                <label class="color-wheel-wrap" title="Escolher cor personalizada"><input type="color" class="color-wheel-input" value="#2a2a2a" aria-label="Roda de cores"></label>
+                        </div>
 
             <label>📐 Tamanho do Bilhete</label>
             <div class="size-picker" id="photoSizePicker">
                 <button type="button" class="size-option" data-size="small">Pequeno</button>
                 <button type="button" class="size-option" data-size="medium">Médio</button>
                 <button type="button" class="size-option" data-size="large">Grande</button>
+                <button type="button" class="size-option" data-size="xl">Extra grande</button>
+                <button type="button" class="size-option" data-size="xxl">Gigante</button>
             </div>
 
             <div class="modal-actions">
@@ -508,6 +654,7 @@
     <script src="firebase-config.js"></script>
     <script src="cloudinary-config.js"></script>
     <script src="script.js"></script>
+    <script src="color-wheel.js"></script>
 </body>
 
 </html>
