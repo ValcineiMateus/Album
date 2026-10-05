@@ -20,6 +20,10 @@
     const COVER_KEY = 'albumCover_v1';
     const COVER_OPEN_KEY = 'albumCoverOpen_v1';
 
+    // Tamanhos das letras das notas
+    const NOTE_SIZES = { small: '1rem', medium: '1.25rem', large: '1.6rem', xl: '2.1rem', xxl: '2.8rem' };
+    const LIGHTBOX_NOTE_SIZES = { large: '1.7rem', xl: '2.2rem', xxl: '2.8rem' };
+
     // ===== ESTADO =====
     let groups = [];
     let currentEditId = null;
@@ -29,6 +33,7 @@
 
     let currentNoteId = null;
     let selectedNoteFont = "'Caveat', cursive";
+    let selectedNoteSize = "medium";
     let selectedNotePaper = "#fdfaf0";
     let selectedNoteInk = "#2a2a2a";
 
@@ -527,6 +532,8 @@
         selectedNoteFont = note.font || "'Caveat', cursive";
         selectedNotePaper = note.paper || "#fdfaf0";
         selectedNoteInk = note.ink || "#2a2a2a";
+        selectedNoteSize = note.size || "medium";
+        document.querySelectorAll('#noteSizePicker .size-option').forEach(btn => btn.classList.toggle('active', btn.dataset.size === selectedNoteSize));
 
         document.querySelectorAll('#fontPicker .font-option').forEach(btn => btn.classList.toggle('active', btn.dataset.font === selectedNoteFont));
         document.querySelectorAll('#paperPicker .color-option').forEach(btn => btn.classList.toggle('active', btn.dataset.color === selectedNotePaper));
@@ -536,6 +543,7 @@
         ta.style.fontFamily = selectedNoteFont;
         ta.style.background = selectedNotePaper;
         ta.style.color = selectedNoteInk;
+        ta.style.fontSize = NOTE_SIZES[selectedNoteSize];
 
         document.getElementById('noteModal').classList.remove('hidden');
         setTimeout(() => ta.focus(), 100);
@@ -557,7 +565,7 @@
         }
 
         groupsCollection.doc(currentNoteId).update({
-            note: { text, font: selectedNoteFont, paper: selectedNotePaper, ink: selectedNoteInk }
+            note: { text, font: selectedNoteFont, paper: selectedNotePaper, ink: selectedNoteInk, size: selectedNoteSize }
         }).catch(err => alert('Erro: ' + err.message));
 
         closeNoteModal();
@@ -587,6 +595,7 @@
         const textDiv = document.createElement('div');
         textDiv.className = 'note-text';
         textDiv.textContent = note.text;
+        if (note.size && NOTE_SIZES[note.size]) textDiv.style.fontSize = NOTE_SIZES[note.size];
 
         const actionsDiv = document.createElement('div');
         actionsDiv.className = 'note-actions';
@@ -819,7 +828,7 @@
         text.className = 'free-note-text';
         text.style.fontFamily = note.font || "'Caveat', cursive";
         const size = note.size || 'medium';
-        text.style.fontSize = size === 'small' ? '1rem' : size === 'large' ? '1.6rem' : '1.25rem';
+        text.style.fontSize = NOTE_SIZES[size] || NOTE_SIZES.medium;
         text.textContent = note.text || '✎ Clique em "Editar" para escrever...';
         if (!note.text) { text.style.opacity = '0.5'; text.style.fontStyle = 'italic'; }
 
@@ -1208,6 +1217,7 @@
                 noteEl.style.color = note.ink || '#2a2a2a';
                 noteEl.style.fontFamily = note.font || "'Caveat', cursive";
                 noteEl.textContent = note.text;
+                if (LIGHTBOX_NOTE_SIZES[note.size]) noteEl.style.fontSize = LIGHTBOX_NOTE_SIZES[note.size];
                 info.parentNode.insertBefore(noteEl, info.nextSibling);
             }
         }
@@ -1468,6 +1478,15 @@
             document.querySelectorAll('#photoInkPicker .color-option').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             document.getElementById('photoNoteText').style.color = selectedPhotoNoteInk;
+        });
+    });
+
+    document.querySelectorAll('#noteSizePicker .size-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+            selectedNoteSize = btn.dataset.size;
+            document.querySelectorAll('#noteSizePicker .size-option').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('noteText').style.fontSize = NOTE_SIZES[selectedNoteSize];
         });
     });
 
