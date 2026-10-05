@@ -1,8 +1,10 @@
 // ===== SERVICE WORKER =====
-const CACHE_NAME = 'album-amor-v14';
+const CACHE_NAME = 'album-amor-v19';
 const ASSETS = [
     'index.html',
     'style.css?v=14',
+    'modern.css?v=4',
+    'color-wheel.js',
     'script.js',
     'firebase-config.js',
     'cloudinary-config.js',
